@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
 
-  before_action :fetch_user, only: [:show, :edit, :update]
 
   def index
+    @users = User.all
   end
 
   def new
   end
 
   def show
+
   end
 
   def edit
@@ -21,13 +22,12 @@ class UsersController < ApplicationController
 
   private
 
-  def fetch_user
-    @user = User.find(params[:id])
-  end
+
 
   def user_params
     params.require(:user).permit(
       :first_name, :last_name, :birth_date, :city, :country, :photo, :description
     )
 
+end
 end
