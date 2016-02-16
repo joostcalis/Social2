@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  def show
-    @posts = Post.where(:user_id => current_user.friendships)
+  def index
+    @posts = current_user.friends.posts
   end
 
   private
