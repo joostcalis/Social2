@@ -1,4 +1,4 @@
-<h1><%= @user.first_name %> <%= @user.first_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <p><%= image_tag @user.photo %></p>
 
@@ -6,10 +6,14 @@
 <p><b>City: </b><%= @user.city %></p>
 <p><b>Country: </b><%= @user.country %></p>
 <p><b>About Me: </b><%= @user.description %></p>
-
-<% @user.post.each do |post| %>
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-  <p><%= @user.post.content( post ) %></p>
-
+<% @user.friends.each do |friend| %>
+<%= friend.first_name %>
+<% end %>
+<p><%= link_to "add as a friend", new_user_friendrequest_path(@user) %></p>
+  <% @friendrequests.each do |friendrequest| %>
+  <p>
+    <% if friendrequest.user_id == @user.id %>
+      <%= friendrequest.status %>
+    <% end %>
   <% end %>
+</p>
