@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :users do
    resources :friendrequests
  end
+ resources :posts do
+   resources :hugs
+ end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
