@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  end
  resources :posts do
    resources :hugs
+   resources :comments
  end
 
   # Example of regular route:

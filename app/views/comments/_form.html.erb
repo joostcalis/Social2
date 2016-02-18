@@ -1,0 +1,6 @@
+<%= form_for([post, Comment.new]) do |f| %>
+<%= f.label :reply %>
+<%= f.text_area :reply %>
+  <%= f.submit "Reply" %>
+
+<% end %>
