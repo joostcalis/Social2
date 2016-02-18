@@ -22,7 +22,19 @@
   </div>
 <% end %>
 
-
 <% @posts.each do |post| %>
 <%= post.content %>
+
+<div class="post">
+  <p><%= post.content %></p>
+  <noscript>
+    <%= render "/hugs/form", post: post %>
+  </noscript>
+  <span class="counter" id="hug-counter-<%= post.id %>">
+    <%= post.hugs.count %>
+  </span>
+  <%= link_to "ツ", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %>
+</div>
+
+
 <% end %>

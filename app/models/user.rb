@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
  has_many :outgoing_friend_requests, class_name: Friendrequest
  has_many :incoming_friend_requests, class_name: Friendrequest, foreign_key: :friend_id
  has_many :posts
+ has_many :hugs
+ has_many :comments
 
          def to_friend
            Friend.find(id)
