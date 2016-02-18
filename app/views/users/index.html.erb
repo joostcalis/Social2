@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+<p><%= user.first_name %> <%= user.last_name %></p>
+<p><%= link_to "show user page", user_path(user) %>
+<%= link_to "Send friend request", new_user_friendrequest_path(user) %>
+
+
+<% end %>
