@@ -3,5 +3,17 @@
 
 
 .form-control {
-  marigin-left: 100px; 
+  marigin-left: 100px;
+}
+
+.jumbotron {
+    position: relative;
+    background: #000 url("huggingjumbo.jpg") right;
+    width: 80%;
+    height: 80%;
+    background-size: cover;
+}
+
+.jumboright {
+  text-align: right;
 }
