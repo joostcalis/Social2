@@ -1,7 +1,21 @@
 <% @users.each do |user| %>
-<p><%= user.first_name %> <%= user.last_name %></p>
-<p><%= link_to "show user page", user_path(user) %>
-<%= link_to "Send friend request", new_user_friendrequest_path(user) %>
+<div class="container-fluid min-width">
 
+    <div class="col-md-6 padding">
+      <h1><p><%= user.first_name %> <%= user.last_name %></p></h1>
+
+        <aside class="col-sm-3">
+          <div class="photo">
+            <%= image_tag user.photo, class: "img-responsive" %>
+          </div>
+        </aside>
+
+        <article class="col-sm-3">
+          <p><b><%= link_to "show user page", user_path(user) %></b></p>
+          <p><b><%= link_to "Send friend request", new_user_friendrequest_path(user) %></b></p>
+        </article>
+    </div>
+  </div>
+</div>
 
 <% end %>
