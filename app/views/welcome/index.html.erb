@@ -1,14 +1,41 @@
-<h1>Welcome to our site!</h1>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Hug me</h1>
+      <p>On this social network page you can connect with your best friends, and stay virtually up to date in order to be LESS social in real life. No account yet?  </p>
+      <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+    </div>
+  </div>
 
-<p>
-  <%= link_to "Sign Up", new_user_registration_path %>
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-6">
+        <h2><em>Funny new features</h2>
+        <p>"Hug your virtual friends and get cosy by our newly updated hug button." </em></p>
+        <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+      </div>
+      <div class="col-md-6">
+        <h2><em></h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+     </div>
+      <!-- <div class="col-md-4">
+        <h2>Heading3</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div> -->
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; 2015 Company, Inc.</p>
+    </footer>
+  </div> <!-- /container -->
+
+
 </p>
 <p>
-  <%= link_to "Log in", new_user_session_path %>
-</p>
-<p>
-  <%= link_to "users index", users_path %>
-</p>
-<p>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+ <%= link_to "Log in", new_user_session_path %>
 </p>

@@ -1,4 +1,5 @@
 class FriendrequestsController < ApplicationController
+before_action :authenticate_user!
   def new
     @friendrequest = Friendrequest.new
     @friendrequest.friend_id = current_user.id
@@ -14,7 +15,7 @@ class FriendrequestsController < ApplicationController
     @friend = Friend.find(current_user.id)
     if @friendrequest.save
       @user.friends << @friend
-      
+
       redirect_to root_path
     else
       render :new
