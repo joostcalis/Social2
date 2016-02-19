@@ -1,0 +1,12 @@
+<% @friendrequests.each do |friendrequest| %>
+<p>
+  <% if friendrequest.user_id == current_user.id %>
+  <%if friendrequest.status == "Pending" %>
+  <p>
+    <%= friendrequest.friend.first_name %> <%=friendrequest.friend.last_name  %> has send you a friendrequest
+  </p>
+    <%= link_to "see this friendrequest", friendrequest_path(friendrequest) %>
+<% end %>
+  <% end %>
+<% end %>
+</p>
