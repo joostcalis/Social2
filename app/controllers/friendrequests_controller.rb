@@ -45,7 +45,7 @@ def update
  respond_to do |format|
    if @friendrequest.update(friendrequest_params)
      @user.friends << @friend
-     format.html { redirect_to @friendrequest, notice: 'U are now friends' }
+     format.html { redirect_to current_user, notice: 'U are now friends' }
      format.json { render :show, status: :ok, location: @friendrequest }
    else
      format.html { render :edit }
@@ -53,6 +53,19 @@ def update
    end
  end
 end
+def destroy
+  @user = current_user
+
+    @friendrequest = Friendrequest.find(params[:id])
+    @friend = @friendrequest.friend
+
+    if @friendrequest.destroy
+      @user.friends.delete(@friend)
+      redirect_to root_path
+    else
+      redirect_to @artist
+    end
+  end
 
 private
 

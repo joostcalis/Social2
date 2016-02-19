@@ -1,24 +1,19 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   def new
     @post = Post.new
   end
-
   def index
     @posts = Post.all
     @post = Post.new
+    @friends = current_user.friends
   end
-
   def show
   end
-
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to root_url, notice: 'Post was successfully created.' }
@@ -29,7 +24,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
   def update
       respond_to do |format|
         if @post.update(post_params)
@@ -41,7 +35,6 @@ class PostsController < ApplicationController
         end
       end
     end
-
     def destroy
         @post.destroy
         respond_to do |format|
@@ -49,15 +42,11 @@ class PostsController < ApplicationController
           format.json { head :no_content }
         end
       end
-
-
   private
       # Use callbacks to share common setup or constraints between actions.
       def set_post
         @post = Post.find(params[:id])
       end
-
-
     def post_params
       params.require(:post).permit(:content, :image)
     end

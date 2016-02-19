@@ -13,4 +13,5 @@ Rails.application.routes.draw do
    resources :comments
  end
  resources :friendrequests, only: [:show, :edit, :update]
+ resources :friends
 end

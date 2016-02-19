@@ -5,4 +5,8 @@ class Friendrequest < ActiveRecord::Base
   def self.pending
     where(status: "Pending")
   end
+
+  def remove_friendship(user,friend)
+    user.friends.delete(friend)
+  end
 end

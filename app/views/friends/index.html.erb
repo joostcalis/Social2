@@ -1,0 +1,7 @@
+<% @friends.each do |friend| %>
+<h1><%= friend.first_name %> <%= friend.last_name %></h1>
+<p><%= image_tag friend.photo %></p>
+<p><b>Birthday: </b><%= friend.birth_date %></p>
+<p><b>City: </b><%= friend.city %></p>
+<p><b>Country: </b><%= friend.country %></p>
+<% end %>

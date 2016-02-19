@@ -4,6 +4,9 @@
 <p><b>City: </b><%= @user.city %></p>
 <p><b>Country: </b><%= @user.country %></p>
 <p><b>About Me: </b><%= @user.description %></p>
+<% if current_user.id == @user.id %>
+<p><%= link_to "see all your friends", friends_path %>
+  <% end %>
 <% if current_user.id != @user.id %>
 <%if current_user.friends.exclude?(@friend) %>
 <%=form_for @friendrequest, url: user_friendrequests_path(@user), html: { method: :post } do |f| %>
