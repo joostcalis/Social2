@@ -1,0 +1,7 @@
+<%= @friendrequest.friend.first_name %>
+<%=form_for @friendrequest do |f| %>
+<div>
+  <%= f.select(:status, ["accept"]) %>
+  <%= f.submit "Confirm" %>
+  <% end %>
+</div>

@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
  has_and_belongs_to_many :friends, join_table: :friends_users
- has_many :outgoing_friend_requests, class_name: Friendrequest
- has_many :incoming_friend_requests, class_name: Friendrequest, foreign_key: :friend_id
+ has_many :friendrequests
  has_many :posts
  has_many :hugs
 
