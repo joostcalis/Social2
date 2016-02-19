@@ -13,9 +13,7 @@
 </div>
 <% end %>
 <% end %>
-<% @user.friends.each do |friend| %>
-<%= friend.first_name %>
-<% end %>
+
   <% @friendrequests.each do |friendrequest| %>
   <p>
     <% if friendrequest.user_id == current_user.id %>
