@@ -19,12 +19,12 @@
       <%= f.submit %>
     </div>
       <% end %>
-<div class="container">
+<!-- <div class="container">
   <% @posts.each do |post| %>
     <% if @friends.include?(post.user.to_friend) %>
-    <!--Row with two equal columns-->
-    <div class="row border" >
-        <div class="col-md-8">
+    Row with two equal columns-->
+    <!-- <div class="row border" > -->
+        <!-- <div class="col-md-8">
           <p>
             <%= post.content %>
           </p>
@@ -43,4 +43,24 @@
     <% end %>
     <% end %>
     <% end %>
-  </div>
+  </div> -->
+
+  <% @posts.each do |post| %>
+    <% if @friends.include?(post.user.to_friend) || post.user == current_user %>
+  <section class="user-card">
+  	<div class="row">
+  		<div class="col-md-12 padding user-description">
+        <h4>
+          <%= post.user.first_name %> <%= post.user.last_name %> wrote:
+        </h4>
+  			<p><%= post.content %></p>
+        <p class="hug-paragraph">
+          <span class="counter" id="hug-counter-<%= post.id %>">
+          <%= post.hugs.count %>
+          </span>
+          <%= link_to "⚘", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %> Give this post a Hug!
+        </p>
+  		</div>
+  </section>
+  <% end %>
+  <% end %>

@@ -1,2 +1,53 @@
-<%= @friendrequest.friend.first_name %>
-  <%= link_to "see more info", edit_friendrequest_path %>
+<!-- <%= @friendrequest.friend.first_name %>
+  <%= link_to "see more info", edit_friendrequest_path %> -->
+
+  <section class="table">
+  	<div class="row"><!-- start content -->
+
+
+  		<div class="col-md-6 left-column padding">
+  			<!-- Left column -->
+  			<%= image_tag @user.photo.user_size,  class: "max-width margin-bottom" %>
+
+
+
+  		</div><!-- end of left column -->
+
+  		<div class="col-md-6 right-column padding border-left">
+  			<!-- Right column -->
+  			<h2><%= @friendrequest.friend.first_name %> <%= @friendrequest.friend.last_name %></h2>
+  			<h3><%= @friendrequest.friend.city %></h3>
+        <h3><%= @friendrequest.friend.country %></h3>
+  			<p><%= @friendrequest.friend.description %></p>
+
+
+
+        <%=form_for @friendrequest, url: friendrequest_path(@friendrequest), html: {method: :patch} do |f| %>
+        <div>
+          <p>
+            <%= f.select(:status, ["Accept", "Decline"]) %>
+          <%= f.submit "Confirm" %>
+         </p>
+<% end %>
+
+
+
+
+</div><!-- end of right column -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+​
+	</div><!-- end of user section -->
+</section><!-- end table div -->

@@ -1,0 +1,22 @@
+.user-card {
+	width: 1000px;
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	background-color: #fff;
+}
+
+.user-image-thumb {
+	max-width: 33.33%;
+	max-width: calc(100% / 3);
+	margin: 0;
+	float: left;
+}
+
+.google_maps {
+	border: 0px;
+	width: 100%;
+	height: 300px;
+	border-radius: 50px;
+}

@@ -7,7 +7,7 @@ function hug(url, id) {
       console.log(response.hugs);
       $("#hug-counter-" + id).html(response.hugs);
     });
-}
+};
 
 
 $(document).ready(function() {
