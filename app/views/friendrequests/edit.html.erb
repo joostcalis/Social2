@@ -1,7 +1,13 @@
 <%= @friendrequest.friend.first_name %>
 <%=form_for @friendrequest do |f| %>
 <div>
-  <%= f.select(:status, ["accept"]) %>
+  <p>
+    <%= f.select(:status, ["accept"]) %>
   <%= f.submit "Confirm" %>
   <% end %>
+</p>
+<p>
+  <%= link_to "decline", user_friendrequest_path(current_user, @friendrequest), method: :delete %>
+</p>
+
 </div>

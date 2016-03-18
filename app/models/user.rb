@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+mount_uploader :photo, PhotoUploader
  has_and_belongs_to_many :friends, join_table: :friends_users
  has_many :friendrequests
  has_many :posts

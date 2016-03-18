@@ -1,0 +1,102 @@
+.l-button {
+	border: 1px solid #000;
+	padding: 10px;
+	background: none;
+	transition: 0.3s ease-in-out;
+}
+
+.l-button:hover {
+	background-color: #E1F1E2;
+	transition: 0.3s ease-in-out;
+}
+
+.submit-button {
+	border: none;
+	border-radius: 4px;
+	padding: 10px;
+	background: none;
+	background-color: #1ea3c9;
+	color: white;
+	font-weight: 700;
+}
+
+
+.add_listing {
+	height: 120px;
+	display: block;
+	width: 100%;
+	border: 1px solid #000;
+	background: none;
+	transition: 0.3s ease-in-out;
+}
+
+.add_listing:hover {
+	background-color: #E1F1E2;
+	transition: 0.3s ease-in-out;
+}
+
+.s-button {
+	border: 1px solid #000;
+	background: none;
+	padding: 5px;
+	font-family: 'Karla', monospace;
+	font-size: 10px;
+	font-weight: 200;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	transition: 0.3s ease-in-out;
+}
+
+.s-button:hover {
+	background-color: #E1F1E2;
+	transition: 0.3s ease-in-out;
+}
+
+.button-text {
+	font-family: 'Karla', monospace;
+	font-weight: 200;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+}
+
+.l-form {
+	border: 1px solid #000;
+	width: 100%;
+	padding: 10px;
+	border-radius: 4px;
+	background: none;
+}
+
+.add img {
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+
+}
+
+.row {
+	margin: 0;
+	padding: 0;
+}
+
+.hug-button {
+  font-size: 40px;
+}
+.counter {
+  font-size: 30px;
+}
+
+.show-friend-button {
+	margin-left: 30px;
+	background-color: #cce0ff;
+	border: 0.5px solid black;
+}
+
+.show-friend-button:hover {
+	margin-left: 30px;
+	background-color: #4d91ff;
+	border: 0.5px solid black;
+}

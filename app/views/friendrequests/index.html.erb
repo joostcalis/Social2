@@ -1,12 +1,13 @@
 <% @friendrequests.each do |friendrequest| %>
-<p>
+
   <% if friendrequest.user_id == current_user.id %>
   <%if friendrequest.status == "Pending" %>
   <p>
     <%= friendrequest.friend.first_name %> <%=friendrequest.friend.last_name  %> has send you a friendrequest
   </p>
-    <%= link_to "see this friendrequest", friendrequest_path(friendrequest) %>
+  <button class="l-button">
+    <%= link_to "#{friendrequest.friend.first_name} #{friendrequest.friend.last_name} has send you a friend request. click here to see #{friendrequest.friend.first_name}'s profile", friendrequest_path(friendrequest) %>
+ </button>
 <% end %>
   <% end %>
 <% end %>
-</p>

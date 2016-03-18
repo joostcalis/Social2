@@ -1,43 +1,84 @@
-<h1>Here is a list with all the posts of you and your friends</h1>
-
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:
+      </h2>
       <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+    <% end %>
       </ul>
     </div>
   <% end %>
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+      <% end %>
+<!-- <div class="container">
+  <% @posts.each do |post| %>
+    <% if @friends.include?(post.user.to_friend) %>
+    Row with two equal columns-->
+    <!-- <div class="row border" > -->
+        <!-- <div class="col-md-8">
+          <p>
+            <%= post.content %>
+          </p>
+          <p>
+            <span class="counter" id="hug-counter-<%= post.id %>">
+            <%= post.hugs.count %>
+            </span>
+            <%= link_to "⚘", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %>
+          </p>
+          <p><%= render "/comments/form", post: post %></p>
+          <% post.comments.each do |comment| %>
+          <p><%= comment.reply %></p>
+        </div>
+        <div class="col-md-4"><%= post.image %></div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div> -->
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<% @posts.each do |post| %>
-
-
-<div class="post">
-  <p><%= post.content %></p>
-  <noscript>
-    <%= render "/hugs/form", post: post %>
-  </noscript>
-  <span class="counter" id="hug-counter-<%= post.id %>">
-    <%= post.hugs.count %>
-  </span>
-  <%= link_to "⚘", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %>
-  <%= render "/comments/form", post: post %>
-</div>
-<% post.comments.each do |comment| %>
-<%= comment.reply %>
-<% end %>
-
-<% end %>
+  <% @posts.each do |post| %>
+    <% if @friends.include?(post.user.to_friend) || post.user == current_user %>
+  <section class="user-card">
+  	<div class="row">
+  		<div class="col-md-12 padding user-description">
+        <h4>
+          <%= post.user.first_name %> <%= post.user.last_name %> wrote:
+        </h4>
+  			<p><%= post.content %></p>
+        <p class="hug-paragraph">
+          <span class="counter" id="hug-counter-<%= post.id %>">
+          <%= post.hugs.count %>
+          </span>
+          <%= link_to "⚘", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %> Give this post a Hug!
+        </p>
+  		</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 padding user-description">
+            <%= form_for([post, Comment.new]) do |f| %>
+            <p><%= f.label :reply %></p>
+            <p><%= f.text_area :reply %></p>
+              <p><%= f.submit "Reply" %></p>
+            <% end %>
+            <% post.comments.each do |comment| %>
+              <p class="comment-paragraph">
+                <span class="comments" id="comment-<%= post.id %>">
+                <%= comment.reply %>
+                </span>
+              </p>
+              <% end %>
+          </div>
+        </div>
+      </div>
+  </section>
+  <% end %>
+  <% end %>

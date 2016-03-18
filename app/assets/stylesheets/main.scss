@@ -1,0 +1,116 @@
+body {
+	background-image: asset_url("fresh_snow.png");
+}
+
+#bg {
+    position: fixed;
+    height: 480px;
+    width: 100vw;
+    z-index: -1;
+    background: image-url('background2.jpg') no-repeat;
+    background-size: cover;
+}
+
+/* header and navigation styling */
+
+header {
+	text-align: center;
+	margin-bottom: 200px;
+}
+
+header img {
+	margin-top: 180px;
+	width: 580px;
+}
+
+// nav {
+// 	height: 70px;
+// 	background-color: black;
+// 	color: white;
+// 	padding-top: 25px;
+// 	font-family: 'Karla', monospace;
+// }
+
+// nav li {
+// 	display: inline-block;
+// 	font-size: 14px;
+// 	font-weight: 400;
+// 	letter-spacing: 1.2px;
+// 	color: #fff;
+// 	text-transform: uppercase;
+// 	padding-right: 30px;
+// }
+//
+// nav li a {
+// 	color: white;
+// 	text-decoration: none;
+// }
+//
+// nav li a:hover {
+// 	color: white;
+// 	text-decoration: none;
+// }
+
+.logo-small {
+	height: 25px;
+}
+
+/* styling main content */
+
+.table {
+	width: 1000px;
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+}
+
+.row {
+	margin: 0;
+	padding: 0;
+}
+
+/* styling footer */
+
+footer {
+	margin-top: 80px;
+	background-color: #111;
+	color: white;
+	padding: 50px;
+	font-family: 'Karla', monospace;
+}
+
+.footer-col {
+	font-family: 'Karla', monospace;
+	padding: 50px;
+	text-align: center;
+}
+
+.footer-col img {
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 40px;
+}
+
+.social li {
+	display: inline-block;
+	margin: 0px 20px 0 20px;
+}
+
+.social {
+	text-align: center;
+}
+
+.footer-row {
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.navbar {
+  background-color: #b3ccff;
+}
+
+.hug-paragraph {
+  padding-top: 15px;
+}

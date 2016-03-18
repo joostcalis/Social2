@@ -21,15 +21,16 @@ def create
  @friend = Friend.find(current_user.id)
  if @friendrequest.save
    @user.friends << @friend
-   redirect_to root_path
+   redirect_to @user
  else
    render :new
  end
 end
 
 def show
- @user = current_user
+
  @friendrequest = Friendrequest.find(params[:id])
+ @user = @friendrequest.friend.to_user
 end
 
 def edit
@@ -44,8 +45,13 @@ def update
  @friend = current_user.to_friend
  respond_to do |format|
    if @friendrequest.update(friendrequest_params)
+     if @friendrequest.status == "Accept"
      @user.friends << @friend
-     format.html { redirect_to @friendrequest, notice: 'U are now friends' }
+    end
+    if @friendrequest.status == "Decline"
+     @friend.to_user.friends.delete(@user.to_friend)
+    end
+     format.html { redirect_to current_user, notice: 'U are now friends' }
      format.json { render :show, status: :ok, location: @friendrequest }
    else
      format.html { render :edit }
@@ -53,6 +59,19 @@ def update
    end
  end
 end
+def destroy
+  @user = current_user
+
+    @friendrequest = Friendrequest.find(params[:id])
+    @friend = @friendrequest.friend
+
+    if @friendrequest.destroy
+      @user.friends.delete(@friend)
+      redirect_to root_path
+    else
+      redirect_to @friendrequest
+    end
+  end
 
 private
 
