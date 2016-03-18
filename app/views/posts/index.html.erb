@@ -61,6 +61,24 @@
           <%= link_to "⚘", post_hugs_path(post), class: "hug-button", data: { post_id: post.id } %> Give this post a Hug!
         </p>
   		</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 padding user-description">
+            <%= form_for([post, Comment.new]) do |f| %>
+            <p><%= f.label :reply %></p>
+            <p><%= f.text_area :reply %></p>
+              <p><%= f.submit "Reply" %></p>
+            <% end %>
+            <% post.comments.each do |comment| %>
+              <p class="comment-paragraph">
+                <span class="comments" id="comment-<%= post.id %>">
+                <%= comment.reply %>
+                </span>
+              </p>
+              <% end %>
+          </div>
+        </div>
+      </div>
   </section>
   <% end %>
   <% end %>

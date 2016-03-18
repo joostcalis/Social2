@@ -1,7 +1,20 @@
-<% @friends.each do |friend| %>
-<h1><%= friend.first_name %> <%= friend.last_name %></h1>
-<p><%= image_tag friend.photo %></p>
-<p><b>Birthday: </b><%= friend.birth_date %></p>
-<p><b>City: </b><%= friend.city %></p>
-<p><b>Country: </b><%= friend.country %></p>
-<% end %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% @friends.each do |friend| %>
+    <div class="col-md-5 friend-card">
+      <div class="friend-left">
+      <h1><%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend.to_user), class: "friend-link" %></h1>
+      <p><b>Birthday: </b><%= friend.birth_date %></p>
+      <p><b>City: </b><%= friend.city %></p>
+      <p><b>Country: </b><%= friend.country %></p>
+    </div>
+    <div class="friend-right">
+      <%= image_tag friend.to_user.photo,  class: "friendindex" %>
+    </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+    <% end %>
+  </div>
+</div>

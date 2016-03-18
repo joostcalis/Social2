@@ -34,66 +34,41 @@
 
 
 
-<section class="table">
-	<div class="row"><!-- start content -->
-
-
-		<div class="col-md-6 left-column padding">
-			<!-- Left column -->
-			<%= image_tag @user.photo.user_size,  class: "max-width margin-bottom" %>
-
-
-
-		</div><!-- end of left column -->
-
-		<div class="col-md-6 right-column padding border-left">
-			<!-- Right column -->
-			<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-			<h3><%= @user.city %></h3>
-      <h3><%= @user.country %></h3>
-			<p><%= @user.description %></p>
-      <% if current_user.id == @user.id %>
-      <button class="l-button"><%= link_to "see all your friends", friends_path %> </button>
-      <% end %>
-      <% if current_user.id != @user.id %>
-      <%if @user.friends.exclude?(current_user.to_friend) %>
-      <%=form_for @friendrequest, url: user_friendrequests_path(@user), html: { method: :post } do |f| %>
-      <div>
-        <%= f.submit "send friend request!" %>
-        <% end %>
-      </div>
-      <% end %>
-      <% end %>
-      <% if current_user.id == @user.id %>
-      <button class="l-button"><%= link_to "My Friendrequests", user_friendrequests_path(current_user) %> </button>
-      <% end %>
-
-
-​
-
-
-
-
-
-
-
-
-
-</div><!-- end of right column -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-​
-	</div><!-- end of user section -->
-</section><!-- end table div -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 user-show">
+			<div class="container-fluid">
+				<div class="row">
+					<div class=col-md-8>
+						<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+						<h3><%= @user.city %></h3>
+			      <h3><%= @user.country %></h3>
+						<p><%= @user.description %></p>
+						<% if current_user.id == @user.id %>
+			      <button class="l-button"><%= link_to "see all your friends", friends_path %> </button>
+			      <% end %>
+			      <% if current_user.id != @user.id %>
+			      <%if @user.friends.exclude?(current_user.to_friend) %>
+			      <%=form_for @friendrequest, url: user_friendrequests_path(@user), html: { method: :post } do |f| %>
+			      <div>
+			        <%= f.submit "send friend request!" %>
+			        <% end %>
+			      </div>
+			      <% end %>
+			      <% end %>
+			      <% if current_user.id == @user.id %>
+			      <button class="l-button"><%= link_to "My Friendrequests", user_friendrequests_path(current_user) %> </button>
+			      <% end %>
+					</div>
+					<div class="col-md-4">
+						<%= image_tag @user.photo.user_size, class: "user-picture"%>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+</div>

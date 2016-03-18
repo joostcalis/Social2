@@ -20,3 +20,19 @@
 	height: 300px;
 	border-radius: 50px;
 }
+
+.user-picture {
+	max-width: calc(100% / 1.8);
+	margin: 0;
+	float: right;
+	border-radius: 1.3em;
+	box-shadow: 2px 2px 5px #888888;
+  border: 0.5px solid black;
+}
+
+.user-show {
+	background-color: #F2F7FF;
+  box-shadow: 7px 7px 5px #888888;
+  border:1px solid black;
+	padding: 15px;
+}

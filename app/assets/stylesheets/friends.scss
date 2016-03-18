@@ -1,3 +1,26 @@
-// Place all the styles related to the Friends controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.friendindex {
+  height: 140px;
+  margin-top: 10px;
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px #888888;
+  border: 0.5px solid black;
+}
+
+.friend-card {
+  background-color: #F2F7FF;
+  box-shadow: 7px 7px 5px #888888;
+  border:1px solid black;
+}
+
+.friend-left {
+  display: inline-block;
+}
+
+.friend-right {
+  display: inline-block;
+  float: right;
+}
+
+.friend-link:hover {
+  font-size: 101%;
+}
