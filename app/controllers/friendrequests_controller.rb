@@ -2,7 +2,9 @@ class FriendrequestsController < ApplicationController
 before_action :authenticate_user!
 def index
 @user = current_user
-@friendrequests = @user.friendrequests
+@friend = @friend = Friend.find(current_user.id)
+@incoming_friendrequests = @user.friendrequests
+@outgoing_friendrequests = Friendrequest.where(friend_id: @user.id)
 end
 
 
@@ -62,8 +64,8 @@ end
 def destroy
   @user = current_user
 
-    @friendrequest = Friendrequest.find(params[:id])
-    @friend = @friendrequest.friend
+  @friendrequest = Friendrequest.find(params[:id])
+  @friend = @friendrequest.friend
 
     if @friendrequest.destroy
       @user.friends.delete(@friend)

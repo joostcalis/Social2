@@ -1,13 +1,33 @@
-<% @friendrequests.each do |friendrequest| %>
+<% if @incoming_friendrequests.any? %>
 
-  <% if friendrequest.user_id == current_user.id %>
-  <%if friendrequest.status == "Pending" %>
-  <p>
-    <%= friendrequest.friend.first_name %> <%=friendrequest.friend.last_name  %> has send you a friendrequest
-  </p>
+<% @incoming_friendrequests.each do |friendrequest| %>
+  <% if friendrequest.user_id == current_user.id && friendrequest.status == "Pending" %>
   <button class="l-button">
     <%= link_to "#{friendrequest.friend.first_name} #{friendrequest.friend.last_name} has send you a friend request. click here to see #{friendrequest.friend.first_name}'s profile", friendrequest_path(friendrequest) %>
  </button>
+
+
+
 <% end %>
-  <% end %>
+<% end %>
+<% else %>
+
+<h3> You currently don't have any incoming Friendrequests </h3>
+<% end %>
+
+<% if @outgoing_friendrequests.any? %>
+
+<% @outgoing_friendrequests.each do |friendrequest| %>
+  <% if friendrequest.friend_id == current_user.id && friendrequest.status == "Pending" %>
+  <button class="l-button">
+    <%= link_to " You have sent #{friendrequest.user.first_name} #{friendrequest.user.last_name} a pending friend request. click here to see #{friendrequest.user.first_name}'s profile", user_path(friendrequest.user) %>
+ </button>
+
+
+
+<% end %>
+<% end %>
+<% else %>
+
+<h3> You currently don't have any outgoing Friendrequests </h3>
 <% end %>

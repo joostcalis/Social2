@@ -1,21 +1,35 @@
-<% @users.each do |user| %>
-<div class="container-fluid min-width">
 
-    <div class="col-md-6 padding">
-      <h1><p><%= user.first_name %> <%= user.last_name %></p></h1>
 
-        <aside class="col-sm-3">
-          <div class="photo">
-            <%= image_tag user.photo, class: "img-responsive" %>
-          </div>
-        </aside>
+<div class="container-fluid">
 
-        <article class="col-sm-3">
-          <p><b><%= link_to "show user page", user_path(user) %></b></p>
-          <p><b><%= link_to "Send friend request", new_user_friendrequest_path(user) %></b></p>
-        </article>
+    <% @users.each do |user| %>
+    <% if current_user != user %>
+    <% unless current_user.friends.include?(user.to_friend) %>
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+    <div class="col-md-6 friend-card">
+      <div class="friend-left">
+      <h1><%= link_to "#{user.first_name} #{user.last_name}", user_path(user), class: "friend-link" %></h1>
+      <p><b>Birthday: </b><%= user.birth_date %></p>
+      <p><b>City: </b><%= user.city %></p>
+      <p><b>Country: </b><%= user.country %></p>
+      <% @friendrequests.each do |friendrequest| %>
+      <% if friendrequest.friend_id == current_user.id && friendrequest.user_id == user.id && friendrequest.status == "Pending" %>
+      <p>You have sent <%= user.first_name %> a pending friendrequest<p>
+        <% end %>
+        <% end %>
     </div>
-  </div>
-</div>
 
-<% end %>
+    <div class="friend-right">
+      <%= image_tag user.photo,  class: "friendindex" %>
+    </div>
+      </div>
+      <div class="col-md-3">
+      </div>
+      </div>
+      <% end %>
+      <% end %>
+    <% end %>
+
+</div>

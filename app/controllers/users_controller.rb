@@ -3,6 +3,7 @@ before_action :authenticate_user!
 
 def index
   @users = User.all
+  @friendrequests = Friendrequest.all
 end
 def new
 end
